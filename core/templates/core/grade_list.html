@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2>成绩列表</h2>
+    <a href="{% url 'grade_create' %}">添加成绩</a>
+
+    <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th>学生</th>
+                <th>课程</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+                <tr>
+                    <td>{{ grade.student.name }}</td>
+                    <td>{{ grade.course.name }}</td>
+                    <td>{{ grade.score }}</td>
+                    <td>
+                        <a href="{% url 'grade_update' grade.id %}">编辑</a>
+                        <a href="{% url 'grade_delete' grade.id %}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

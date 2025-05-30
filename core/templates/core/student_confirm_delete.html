@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2>确认删除学生</h2>
+    <p>你确定要删除学生 {{ student.name }} 吗？</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">删除</button>
+        <a href="{% url 'student_list' %}">取消</a>
+    </form>
+{% endblock %}

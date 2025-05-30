@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2>学生查询</h2>
+    <form method="get" action="{% url 'student_search' %}">
+        {{ form.as_p }}
+        <button type="submit">搜索</button>
+    </form>
+
+    <h3>查询结果</h3>
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student.student_id }} - {{ student.name }} - {{ student.email }} - {{ student.get_gender_display }}
+                <a href="{% url 'student_update' student.student_id %}">编辑</a>
+                <a href="{% url 'student_delete' student.student_id %}">删除</a>
+            </li>
+        {% empty %}
+            <li>没有找到符合条件的学生。</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

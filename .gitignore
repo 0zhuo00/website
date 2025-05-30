@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+webvenv/
+
+# 数据库文件
+*.sqlite3
+*.db
+
+
+# 测试文件
+test.py

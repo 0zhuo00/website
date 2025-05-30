@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2>确认删除课程</h2>
+    <p>你确定要删除课程 {{ course.name }} 吗？</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">删除</button>
+        <a href="{% url 'course_list' %}">取消</a>
+    </form>
+{% endblock %}

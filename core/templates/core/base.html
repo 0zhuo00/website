@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学生信息管理系统</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/zq.jpg' %}" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">学生信息管理系统</a></h1>
+        <nav>
+            <a href="{% url 'student_list' %}">学生列表</a>
+            <a href="{% url 'course_list' %}">课程列表</a>
+            <a href="{% url 'grade_list' %}">成绩列表</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

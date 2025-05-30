@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2>课程列表</h2>
+    <a href="{% url 'course_create' %}">添加课程</a>
+
+    <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th>课程号</th>
+                <th>课程名</th>
+                <th>课程描述</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.course_id }}</td>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.start_date }}</td>
+                    <td>{{ course.end_date }}</td>
+                    <td>
+                        <a href="{% url 'course_update' course.course_id %}">编辑</a>
+                        <a href="{% url 'course_delete' course.course_id %}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

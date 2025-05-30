@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2>确认删除成绩</h2>
+    <p>你确定要删除成绩 {{ grade.score }} 吗？</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">删除</button>
+        <a href="{% url 'grade_list' %}">取消</a>
+    </form>
+{% endblock %}

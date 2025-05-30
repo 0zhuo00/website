@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2>学生列表</h2>
+    <a href="{% url 'student_create' %}">添加学生</a>
+    
+    <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>邮箱</th>
+                <th>性别</th>
+                <th>注册日期</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.student_id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.get_gender_display }}</td>
+                    <td>{{ student.enrolled_date }}</td>
+                    <td>
+                        <a href="{% url 'student_update' student.student_id %}">编辑</a>
+                        <a href="{% url 'student_delete' student.student_id %}">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

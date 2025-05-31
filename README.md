@@ -5,7 +5,7 @@
 
 ### 1. 克隆项目  
 ```
-git clone https://github.com/0zhuo00/website.git
+git clone https://github.com/lasock/website.git
 cd website
 ```
 
